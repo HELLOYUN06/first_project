@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.greenart.used_article.mapper.DashboardMapper">
+
+<select id="getAllMemberCnt" resultType="java.lang.Integer">
+    select count(*) from member_info 
+</select>
+<select id="getRegularMemberCnt" resultType="java.lang.Integer">
+    select count(*) from member_info where mi_status=1
+</select>
+<select id="getHaltMemberCnt" resultType="java.lang.Integer">
+    select count(*) from member_info where mi_status=2
+</select>
+
+<select id="getAllPostCnt" resultType="java.lang.Integer">
+    select count(*) from post_info
+</select>
+<select id="getNoticePostCnt" resultType="java.lang.Integer">
+    select count(*) from post_info where pi_status=0
+</select>
+<select id="getImagePostCnt" resultType="java.lang.Integer">
+    select count(*) from post_info where pi_status=1
+</select>
+
+<select id="getAllAdminCnt" resultType="java.lang.Integer">
+    select count(*) from admin_info
+</select>
+
+</mapper>
