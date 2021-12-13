@@ -23,7 +23,8 @@
             <a href="#" id="logout">로그아웃</a>
         </div>
         <div id="main_menu">
-            <a href="#">게시글 메뉴</a>
+            <a href="/">대시보드</a>
+            <a href="/post">게시글 메뉴</a>
             <a href="#">회원 메뉴</a>
             <a href="#">관리자 메뉴</a>
         </div>

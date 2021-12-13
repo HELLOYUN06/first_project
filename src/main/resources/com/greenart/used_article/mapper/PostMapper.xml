@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.greenart.used_article.mapper.PostMapper">
+
+    <select id="getPostInfo" resultType="com.greenart.used_article.data.PostVO">
+        select * from post_info order by pi_seq desc
+        limit 10 offset #{offset}
+    </select>
+    <select id="getPostCount" resultType="java.lang.Integer">
+        select count(*) from post_info
+    </select>
+
+    <insert id="addPost">
+        insert into post_info(pi_title, pi_sub, pi_mi_seq, pi_i_seq, pi_rq_seq)
+        values(#{pi_title},#{pi_sub},#{pi_mi_seq},#{pi_i_seq},#{pi_rq_seq})
+    </insert>
+</mapper>
