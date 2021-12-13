@@ -11,4 +11,5 @@ public interface PostMapper {
     public List<PostVO> getPostInfo(Integer offset);
     public Integer getPostCount();
     public void addPost(PostVO data);
+    public void deletePost(Integer seq);
 }

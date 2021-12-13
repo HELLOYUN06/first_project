@@ -15,4 +15,8 @@
         insert into post_info(pi_title, pi_sub, pi_mi_seq, pi_i_seq, pi_rq_seq)
         values(#{pi_title},#{pi_sub},#{pi_mi_seq},#{pi_i_seq},#{pi_rq_seq})
     </insert>
+
+    <delete id="deletePost">
+        delete from post_info where pi_seq=#{seq}
+    </delete>
 </mapper>

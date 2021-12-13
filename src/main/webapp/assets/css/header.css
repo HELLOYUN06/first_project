@@ -22,6 +22,7 @@ main {
 }
 #profile_img img{
     position: absolute; left: 50%; top: 50px; margin-left: -50px; margin-top: -50px;
+    text-align: center;
 }
 #profile_img span{
     position: absolute; left: 50%; margin-left: -40px; width: 100%;
@@ -46,6 +47,8 @@ main {
     border-radius: 5px; font-size: 14px; font-weight: 700;
 }
 #logout:hover {background-color: rgb(250, 234, 90);}
+
+
 
 
 

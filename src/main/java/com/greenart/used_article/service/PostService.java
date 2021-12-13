@@ -24,6 +24,7 @@ public class PostService {
         Integer page_cnt = cnt / 10;
         if(cnt % 10 > 0) page_cnt++;
         resultMap.put("status", true);
+        resultMap.put("total", cnt);
         resultMap.put("pageCnt", page_cnt);
         resultMap.put("list", list);
 
@@ -52,5 +53,11 @@ public class PostService {
         resultMap.put("message", "게시글이 추가되었습니다.");
         return resultMap;
     }
-    
+    public Map<String, Object> deletePost(Integer seq){
+        Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
+        mapper.deletePost(seq);
+        resultMap.put("status", true);
+        resultMap.put("message", "게시글이 삭제되었습니다.");
+        return resultMap;
+    }
 }

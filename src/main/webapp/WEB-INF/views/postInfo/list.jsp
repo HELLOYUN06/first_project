@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <%@include file="/WEB-INF/includes/header.jsp"%>
+    <link rel="stylesheet" href="/assets/css/post_list.css">
 <body>
     <main>
         <h1>게시글 메뉴</h1>
@@ -75,11 +76,10 @@
     <div class="popup_wrap">
         <div class="popup" id="post_add">
             <div class="top_area">
-                <div class="icon">
-                    
-                </div>
+                <div class="ico">
                 <h2>게시글 추가</h2>   
                 <p>게시글을 입력해주세요.</p>
+            </div>
             </div>
             <div class="content_area">
                 <input type="text" id="pi_title" placeholder="제목"><br>
