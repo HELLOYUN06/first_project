@@ -10,6 +10,7 @@
     <title>Document</title>
     <%@include file="/WEB-INF/includes/header.jsp"%>
     <link rel="stylesheet" href="/assets/css/post_list.css">
+    <script src="/assets/js/post.js"></script>
 <body>
     <main>
         <h1>게시글 메뉴</h1>
@@ -17,7 +18,7 @@
         <div class="contente_area">
             <div class="menu_area">
                 <div class="search_box">
-                    <input type="text" id="keyword" placeholder="검색어 입력">
+                    <input type="text" id="keyword" placeholder="검색어 입력" value="${data.keyword}">
                     <button id="search_btn">검색</button>
                 </div>
                 <div class="table_area">
@@ -65,10 +66,10 @@
                     <button id="prev"><i class="fas fa-chevron-left"></i></button>
                     <div class="pagers">
                         <c:forEach begin="1" end="${data.pageCnt}" var="i">
-                            <a href="/post?offset=${(i-1)*10}">${i}</a>
+                            <a href="/post?offset=${(i-1)*10}&keyword=${data.keyword}">${i}</a>
                         </c:forEach>
                     </div>
-                    <button id="next"><i class="fas fa-chevron-right"></i> </button>
+                    <button id="next"><i class="fas fa-chevron-right"></i></button>
                 </div>
             </div>
         </div>
@@ -76,22 +77,21 @@
     <div class="popup_wrap">
         <div class="popup" id="post_add">
             <div class="top_area">
-                <div class="ico">
+                <div class="ico"></div>
                 <h2>게시글 추가</h2>   
                 <p>게시글을 입력해주세요.</p>
             </div>
-            </div>
             <div class="content_area">
-                <input type="text" id="pi_title" placeholder="제목"><br>
-                <input type="text" id="pi_i_seq" placeholder="작성자">
-                <input type="text" id="pi_sub" placeholder="내용">
-                <input type="image" id="pi_i_seq" placeholder="사진첨부">
+                <input type="text" id="post_title" placeholder="제목"><br>
+                <input type="text" id="post_mi_seq" placeholder="작성자">
+                <input type="text" id="post_sub" placeholder="내용">
+                <input type="image" id="post_i_seq" placeholder="사진첨부">
                 
-                <select id="pi_status">
+                <select id="post_status">
                     <option value="1">공개</option>
                     <option value="2">비공개</option>
                 </select>
-                <select id="pi_rq_seq">
+                <select id="post_rq_seq">
                     <option value="1">가전</option>
                     <option value="2">의류</option>
                     <option value="3">장난감/도서</option>
@@ -100,6 +100,7 @@
             </div>
             <div class="btn_area">
                 <button id="add_posts">등록하기</button>
+                <button id="modify_posts">수정하기</button>
                 <button id="cancel_posts">취소하기</button>
             </div>
 </body>

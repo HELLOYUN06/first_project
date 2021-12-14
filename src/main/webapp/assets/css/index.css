@@ -1,20 +1,20 @@
 main {background-color: rgb(250, 251, 246);}
 
-main > h1 {font-size: 36px; margin-bottom: 30px;}
+main > h1 {font-size: 36px; margin-bottom: 30px; margin-top: 10px;}
 .content_area {font-size: 0; width: 1260px; }
 .content_area > div{
     display: inline-block; vertical-align: top;
     width: 200px; height: 180px; padding: 20px; position: relative;
-    background-color: #fff; font-size: 16px; margin-left: 20px;
+    background-color: #fff; font-size: 16px; margin-left: 20px; margin-top: 15px;
     border-radius: 10px; box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
 }
-.content_area > .post_info {margin-left: 0;} 
+.content_area > .post_info {margin-left: 0; margin-top: 15px;} 
 .content_area > div h2{
     font-size: 16px; margin-bottom: 0px;
     display: inline-block; widows: 30px;
 }
-.content_area > div h2 i{display: inline-block; widows: 30px;}
-.content_area > div p{margin-bottom: 0px; font-size: 14px; color: #434343;}
+.content_area > div h2 {display: inline-block; widows: 30px; margin-bottom: 20px;}
+.content_area > div p{margin-bottom: 10px; font-size: 14px; color: #434343;}
 .content_area > div p span{font-size: 700;}
 .content_area > div p:last-child {font-size: 12px; color: #999;
     position: absolute; right: 15px; bottom: 0px;}

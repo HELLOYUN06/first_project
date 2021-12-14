@@ -17,8 +17,10 @@ public class PostController {
     @Autowired
     PostService service;
     @GetMapping("/post")
-    public String getPost(Model model, @RequestParam @Nullable Integer offset){
-        Map<String, Object> resultMap = service.getPostList(offset);
+    public String getPost(Model model, @RequestParam @Nullable Integer offset,
+        @RequestParam @Nullable String keyword
+        ){
+        Map<String, Object> resultMap = service.getPostList(offset, keyword);
         model.addAttribute("data", resultMap);
         return "/postInfo/list";
     }

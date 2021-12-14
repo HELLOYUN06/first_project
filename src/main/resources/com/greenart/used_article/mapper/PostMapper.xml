@@ -4,19 +4,38 @@
 <mapper namespace="com.greenart.used_article.mapper.PostMapper">
 
     <select id="getPostInfo" resultType="com.greenart.used_article.data.PostVO">
-        select * from post_info order by pi_seq desc
+        select * from post_info where pi_title like #{keyword}
+        order by pi_seq desc
         limit 10 offset #{offset}
     </select>
     <select id="getPostCount" resultType="java.lang.Integer">
-        select count(*) from post_info
+        select count(*) from post_info where pi_title like #{keyword}
     </select>
 
     <insert id="addPost">
-        insert into post_info(pi_title, pi_sub, pi_mi_seq, pi_i_seq, pi_rq_seq)
-        values(#{pi_title},#{pi_sub},#{pi_mi_seq},#{pi_i_seq},#{pi_rq_seq})
+        insert into post_info(pi_title, pi_sub, pi_i_seq, pi_rq_seq)
+        values(#{pi_title},#{pi_sub},#{pi_i_seq},#{pi_rq_seq})
     </insert>
-
     <delete id="deletePost">
         delete from post_info where pi_seq=#{seq}
     </delete>
+    <select id="getPostInfoBySeq" resultType="com.greenart.used_article.data.PostVO">
+        select * from post_info where pi_seq = #{seq}
+    </select>
+    <update id="updatePost">
+        update post_info
+        set pi_title=#{pi_title}, pi_sub=#{pi_sub}, pi_i_seq=#{pi_i_seq}, pi_rq_seq=#{pi_rq_seq}, pi_mod_dt=NOW()
+        where pi_seq=#{pi_seq}
+    </update>
+
+    <select id="selectLatestDataSeq" resultType="java.lang.Integer" >
+        select pi_seq from post_info
+        order by pi_seq desc limit 1
+    </select>
+    <insert id="insertPostHistory" >
+        INSERT INTO used_article_db.post_history(ph_type, ph_content, ph_pi_seq)
+        VALUES(#{ph_type},#{ph_content},#{ph_pi_seq})
+    </insert>
+
+
 </mapper>
