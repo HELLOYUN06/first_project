@@ -14,12 +14,18 @@
 <body>
     <main>
         <h1>게시글 메뉴</h1>
-        <button id="add_post">게시글 작성</button>
+        <button id="add_post"><i class="far fa-edit"></i>  게시글 작성</button>
         <div class="contente_area">
             <div class="menu_area">
                 <div class="search_box">
+                    <select id="search_type">
+                        <option value="title">제목</option>
+                        <option value="cate"
+                            <c:if test="${data.type=='cate'}">selected</c:if>
+                        >카테고리</option>
+                    </select>
                     <input type="text" id="keyword" placeholder="검색어 입력" value="${data.keyword}">
-                    <button id="search_btn">검색</button>
+                    <button id="search_btn"><i class="fas fa-search"></i></button>
                 </div>
                 <div class="table_area">
                     <table>
@@ -34,6 +40,7 @@
                                 <td>작성자</td>
                                 <td>등록일</td>
                                 <td>수정일</td>
+                                <td>조작</td>
                             </tr>
                         </thead>
                             <tbody>
@@ -45,8 +52,28 @@
                                 <c:forEach items="${data.list}" var="p">
                                     <tr>
                                         <td>${p.pi_seq}</td>
-                                        <td>${p.pi_state}</td>
-                                        <td>${p.pi_rq_seq}</td>
+                                        <td>
+                                            <c:if test="${p.pi_state == 0}">
+                                                <span>비공개</span>
+                                            </c:if>
+                                            <c:if test="${p.pi_state == 1}">
+                                                <span>공개</span>
+                                            </c:if>
+                                        </td>
+                                        <td>
+                                            <c:if test="${p.pi_rq_seq == 1}">
+                                                <span>가전</span>
+                                            </c:if>
+                                            <c:if test="${p.pi_rq_seq == 2}">
+                                                <span>의류</span>
+                                            </c:if>
+                                            <c:if test="${p.pi_rq_seq == 3}">
+                                                <span>장난감/도서</span>
+                                            </c:if>
+                                            <c:if test="${p.pi_rq_seq == 4}">
+                                                <span>etc</span>
+                                            </c:if>
+                                        </td>                   
                                         <td>${p.pi_title}</td>
                                         <td>${p.pi_sub}</td>
                                         <td>${p.pi_i_seq}</td>
@@ -54,8 +81,9 @@
                                         <td>${p.pi_reg_dt}</td>
                                         <td>${p.pi_mod_dt}</td>
                                         <td>
-                                            <button class="modify_btn" data-seq="${p.pi_seq}">수정</button>
-                                            <button class="delete_btn" data-seq="${p.pi_seq}">삭제</button>
+                                            <button class="modify_btn" data-seq="${p.pi_seq}"><i class="fas fa-pen-alt"></i></button>
+                                            <button class="delete_btn" data-seq="${p.pi_seq}"><i class="far fa-trash-alt"></i>
+                                            </button>
                                         </td>
                                     </tr>
                                 </c:forEach>
@@ -87,7 +115,7 @@
                 <input type="text" id="post_sub" placeholder="내용">
                 <input type="image" id="post_i_seq" placeholder="사진첨부">
                 
-                <select id="post_status">
+                <select id="post_state">
                     <option value="1">공개</option>
                     <option value="2">비공개</option>
                 </select>

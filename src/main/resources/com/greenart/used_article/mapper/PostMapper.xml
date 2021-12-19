@@ -13,8 +13,8 @@
     </select>
 
     <insert id="addPost">
-        insert into post_info(pi_title, pi_sub, pi_i_seq, pi_rq_seq)
-        values(#{pi_title},#{pi_sub},#{pi_i_seq},#{pi_rq_seq})
+        insert into post_info(pi_title, pi_sub, pi_i_seq, pi_rq_seq, pi_state)
+        values(#{pi_title},#{pi_sub},#{pi_i_seq},#{pi_rq_seq},#{pi_state})
     </insert>
     <delete id="deletePost">
         delete from post_info where pi_seq=#{seq}
@@ -24,7 +24,7 @@
     </select>
     <update id="updatePost">
         update post_info
-        set pi_title=#{pi_title}, pi_sub=#{pi_sub}, pi_i_seq=#{pi_i_seq}, pi_rq_seq=#{pi_rq_seq}, pi_mod_dt=NOW()
+        set pi_title=#{pi_title}, pi_sub=#{pi_sub}, pi_i_seq=#{pi_i_seq}, pi_state=#{pi_state}, pi_mod_dt=NOW()
         where pi_seq=#{pi_seq}
     </update>
 

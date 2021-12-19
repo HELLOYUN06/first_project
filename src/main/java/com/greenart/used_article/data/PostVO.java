@@ -9,7 +9,6 @@ public class PostVO {
     private Integer pi_seq;
     private String pi_title;
     private String pi_sub;
-    private Integer pi_status;
     private Date pi_reg_dt;
     private Date pi_mod_dt;
     private Integer pi_state;

@@ -17,10 +17,10 @@
     select count(*) from post_info
 </select>
 <select id="getNoticePostCnt" resultType="java.lang.Integer">
-    select count(*) from post_info where pi_status=0
+    select count(*) from post_info where pi_state=0
 </select>
 <select id="getImagePostCnt" resultType="java.lang.Integer">
-    select count(*) from post_info where pi_status=1
+    select count(*) from post_info where pi_state=1
 </select>
 
 <select id="getAllAdminCnt" resultType="java.lang.Integer">

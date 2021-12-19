@@ -120,4 +120,5 @@ $(function(){
             $("#search_btn").trigger("click");
         }
     })
+    
 })

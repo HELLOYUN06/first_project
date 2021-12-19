@@ -14,15 +14,12 @@ main {
 #main_menu a:hover{
     color: #fff; background-color: #666;
 }
-#main_menu a.active{color: #fff; background-color: #333;}
-
 #profile_img{
     display: inline-block; width: 80px; height: 80px;
     border-radius: 50%; overflow: hidden; position: relative;
 }
 #profile_img img{
     position: absolute; left: 50%; top: 50px; margin-left: -50px; margin-top: -50px;
-    text-align: center;
 }
 #profile_img span{
     position: absolute; left: 50%; margin-left: -40px; width: 100%;
@@ -48,6 +45,8 @@ main {
 }
 #logout:hover {background-color: rgb(250, 234, 90);}
 
+.main_menu i{display: inline-block; width: 30px;}
+.main_menu a.active{color: #fff; background-color: #333;}
 
 
 
