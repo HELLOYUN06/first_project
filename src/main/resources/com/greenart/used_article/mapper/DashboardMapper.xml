@@ -7,10 +7,10 @@
     select count(*) from member_info 
 </select>
 <select id="getRegularMemberCnt" resultType="java.lang.Integer">
-    select count(*) from member_info where mi_status=1
+    select count(*) from member_info where mi_state=1
 </select>
 <select id="getHaltMemberCnt" resultType="java.lang.Integer">
-    select count(*) from member_info where mi_status=2
+    select count(*) from member_info where mi_state=2
 </select>
 
 <select id="getAllPostCnt" resultType="java.lang.Integer">

@@ -1,6 +1,5 @@
 package com.greenart.used_article.api;
 
-import java.util.LinkedHashMap;
 import java.util.Map;
 
 import com.greenart.used_article.data.PostVO;

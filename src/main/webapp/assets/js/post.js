@@ -12,14 +12,14 @@ $(function(){
         let post_title = $("#post_title").val();
         let post_i_seq = $("#post_i_seq").val();
         let post_sub = $("#post_sub").val();
-        let post_status = $("#post_status option:selected").val();
-        let post_rq_seq = $("#post_rq_seq").val();
+        let post_state = $("#post_state option:selected").val();
+        let post_rq_seq = $("#post_rq_seq option:selected").val();
     
         let data = {
             pi_title : post_title,
             pi_i_seq : post_i_seq,
             pi_sub : post_sub,
-            pi_status : post_status,
+            pi_state : post_state,
             pi_rq_seq : post_rq_seq
         }
         $.ajax({
@@ -41,8 +41,8 @@ $(function(){
         $("#post_i_seq").val("");
         $("#post_sub").val("");
         $("#post_i_seq").val("");
-        $("#post_status").val("1").prop("selected", true);
-        $("#post_rq_seq").val("");
+        $("#post_state").val("1").prop("selected", true);
+        $("#post_rq_seq").val("").prop("selected", true);
         
         $(".popup_wrap").removeClass("open");
     })
@@ -75,7 +75,7 @@ $(function(){
             success:function(r){
                 console.log(r);
                 $("#post_title").val(r.data.pi_title);
-                $("#post_status").val(r.data.pi_status).prop("selected", true);
+                $("#post_state").val(r.data.pi_state).prop("selected", true);
                 $("#post_sub").val(r.data.pi_sub);
                 $("#post_i_seq").val(r.data.pi_i_seq);
                 $("#post_rq_seq").val(r.data.pi_rq_seq).prop("selected", true);
@@ -89,15 +89,15 @@ $(function(){
         let post_title = $("#post_title").val();
         let post_i_seq = $("#post_i_seq").val();
         let post_sub = $("#post_sub").val();
-        let post_status = $("#post_status option:selected").val();
-        let post_rq_seq = $("#post_rq_seq").val();
+        let post_state = $("#post_state option:selected").val();
+        let post_rq_seq = $("#post_rq_seq option:selected").val();
     
         let data = {
             pi_seq:modify_data_seq,
             pi_title : post_title,
             pi_i_seq : post_i_seq,
             pi_sub : post_sub,
-            pi_status : post_status,
+            pi_state : post_state,
             pi_rq_seq : post_rq_seq
         }
         $.ajax({

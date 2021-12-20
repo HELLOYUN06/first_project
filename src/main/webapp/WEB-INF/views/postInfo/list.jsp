@@ -65,12 +65,15 @@
                                                 <span>가전</span>
                                             </c:if>
                                             <c:if test="${p.pi_rq_seq == 2}">
-                                                <span>의류</span>
+                                                <span>가구</span>
                                             </c:if>
                                             <c:if test="${p.pi_rq_seq == 3}">
-                                                <span>장난감/도서</span>
+                                                <span>의류</span>
                                             </c:if>
                                             <c:if test="${p.pi_rq_seq == 4}">
+                                                <span>장난감/도서</span>
+                                            </c:if>
+                                            <c:if test="${p.pi_rq_seq == 5}">
                                                 <span>etc</span>
                                             </c:if>
                                         </td>                   
@@ -112,19 +115,19 @@
             <div class="content_area">
                 <input type="text" id="post_title" placeholder="제목"><br>
                 <input type="text" id="post_mi_seq" placeholder="작성자">
-                <input type="text" id="post_sub" placeholder="내용">
-                <input type="image" id="post_i_seq" placeholder="사진첨부">
-                
-                <select id="post_state">
-                    <option value="1">공개</option>
-                    <option value="2">비공개</option>
-                </select>
+                <input type="text" id="post_i_seq" placeholder="사진첨부">
                 <select id="post_rq_seq">
                     <option value="1">가전</option>
-                    <option value="2">의류</option>
-                    <option value="3">장난감/도서</option>
-                    <option value="4">etc</option>
+                    <option value="2">가구</option>
+                    <option value="3">의류</option>
+                    <option value="4">장난감/도서</option>
+                    <option value="5">etc</option>
                 </select>
+                <select id="post_state">
+                    <option value="0">비공개</option>
+                    <option value="1">공개</option>
+                </select>
+                <input type="text" id="post_sub" placeholder="내용">
             </div>
             <div class="btn_area">
                 <button id="add_posts">등록하기</button>

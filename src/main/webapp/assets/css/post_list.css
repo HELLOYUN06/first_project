@@ -60,16 +60,30 @@ main > h1 {font-size: 36px; padding-bottom: 30px; margin-bottom: 30px; border-bo
 .popup .content_area{padding: 20px 0;  width: 350px; margin: 0 auto; font-size: 0; 
     padding-bottom: 20px;
 }
-#post_title, #post_mi_seq, #post_sub, #post_i_seq {width: 100%; padding: 0; margin: 0; border: 1px solid #ccc;
+#post_title {height: 35px; width: 50%; padding: 0; margin: 0; border: 1px solid #ccc;
+    font-size: 16px; font-weight: 400; padding: 8px 18px; box-sizing: border-box;
+    border-radius: 15px; margin-bottom: 10px; outline: none;
+}
+#post_sub { height: 100px;
+    width: 100%; padding: 0; margin: 0; border: 1px solid #ccc;
     font-size: 16px; font-weight: 400; padding: 10px 20px; box-sizing: border-box;
-    border-radius: 15px; margin-bottom: 15px; outline: none;
+    border-radius: 14px; margin-bottom: 10px; outline: none;}
+
+#post_mi_seq { height: 35px;
+    width: 150px; padding: 0; margin: 0; border: 1px solid #ccc;
+    font-size: 12px; font-weight: 400; padding: 9px 20px; box-sizing: border-box;
+    border-radius: 15px 0 0 15px; border-left : 0 solid #ccc; margin-bottom: 8px; outline: none;
 }
-#post_sub {width: 200px; border-radius: 15px 15px;}
-#post_state {width: 150px; border-radius: 15px 0 0 15px; border-left: 0 solid #000;
-    padding: 9px 20px;
+#post_state {height: 35px; width: 150px; border-radius: 0 15px 15px 0; border: 1px solid #ccc; border-left: 0 solid #ccc;
+    padding: 9px 20px; font-size: 12px; font-weight: 400;
 }
-#post_rq_seq {width: 150px; border-radius: 0 15px 15px 0; border-left: 0 solid #000;
-    padding: 9px 20px;
+#post_rq_seq {height: 35px; width: 150px; border-radius: 15px 0 0 15px; border: 1px solid #ccc; border-left: 0 solid #ccc;
+    padding: 9px 20px; margin-bottom: 15px; font-size: 12px; font-weight: 400; 
+}
+#post_i_seq {height: 35px; 
+    width: 150px; padding: 0; margin: 0; border: 1px solid #ccc;
+    font-size: 12px; font-weight: 400; padding: 9px 20px; box-sizing: border-box;
+    border-radius: 0 15px 15px 0; border-left : 0 solid #ccc; margin-bottom: 8px; outline: none;
 }
 .btn_area {
     text-align: center;
