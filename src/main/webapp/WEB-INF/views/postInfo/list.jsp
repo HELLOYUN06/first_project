@@ -110,7 +110,7 @@
             <div class="top_area">
                 <div class="ico"></div>
                 <h2>게시글 추가</h2>   
-                <p>게시글을 입력해주세요.</p>
+                <p>게시글을 입력해주세요</p>
             </div>
             <div class="content_area">
                 <input type="text" id="post_title" placeholder="제목"><br>

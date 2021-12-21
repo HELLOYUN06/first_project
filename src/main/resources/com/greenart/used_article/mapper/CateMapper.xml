@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.greenart.used_article.mapper.CateMapper">
+    <select id="getCateInfo" resultType="com.greenart.used_article.data.CateVO">
+        select * from cate_info where ci_name like #{keyword}
+    </select>
+
+    <select id="getCateCount" resultType="java.lang.Integer">
+        select count(*) from cate_info where ci_name like #{keyword}
+    </select>
+
+    <insert id="addCate">
+        insert into cate_info(ci_name, ci_wirter) values(#{ci_name}, #{ci_wirter})
+    </insert>
+
+    <delete id="deleteCate">
+        delete from cate_info where ci_seq=#{seq}
+    </delete>
+
+    <select id="getCateInfoBySeq" resultType="com.greenart.used_article.data.CateVO">
+        select * from cate_info where ci_seq = #{seq}
+    </select>
+
+    <update id="updateCate">
+        update cate_info
+        set ci_name=#{ci_name}, ci_wirter=#{ci_wirter} where ci_seq=#{ci_seq}
+    </update>
+</mapper>

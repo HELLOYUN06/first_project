@@ -28,10 +28,11 @@
             <a href="#" id="logout">로그아웃</a>
         </div>
         <div id="main_menu">
-            <a href="/"><i class="fas fa-columns"></i>  대시보드</a>
-            <a href="/post"><i class="fas fa-list-alt"></i>  게시글 메뉴</a>
-            <a href="/member"><i class="fas fa-user-circle"></i>  회원 메뉴</a>
-            <a href="#"><i class="fas fa-user-cog"></i>  관리자 메뉴</a>
+            <a href="/"><i class="fas fa-columns"></i> 대시보드</a>
+            <a href="/category"><i class="fas fa-grip-horizontal"></i> 카테고리 메뉴</a>
+            <a href="/post"><i class="fas fa-list-alt"></i> 게시글 메뉴</a>
+            <a href="/member"><i class="fas fa-user-circle"></i> 회원 메뉴</a>
+            <a href="#"><i class="fas fa-user-cog"></i> 관리자 메뉴</a>
         </div>
     </div>
     </header>

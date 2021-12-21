@@ -21,6 +21,11 @@
     <main>
     <h1>중고물품 관리 대시보드</h1>
     <div class="content_area">
+        <div class="cate_info">
+            <h2><i class="fas fa-grip-horizontal"></i>카테고리 메뉴</h2>
+            <p> 총 카테고리 : <span>${cnt.cate[0]}</span></p>
+            <p> 업데이트 날짜 : <span>2021-12-21 00:00:00</span></p>
+        </div>
         <div class="post_info">
             <h2><i class="fas fa-list-alt"></i>게시글 메뉴</h2>
             <p> 총 게시글 : <span>${cnt.post[0]}</span></p>
