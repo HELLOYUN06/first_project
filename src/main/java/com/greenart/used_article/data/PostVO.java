@@ -16,4 +16,9 @@ public class PostVO {
     private Integer pi_mi_seq;
     private Integer pi_i_seq;
     private Integer pi_rq_seq;
+
+    private String category_name;
+
+    private String mi_name;
+    private String mi_id;
 }

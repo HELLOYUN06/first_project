@@ -1,5 +1,49 @@
 $(function(){
-    $(".main_menu a:nth-child(2)").addClass("active");
+    $(".main_menu a:nth-child(3)").addClass("active");
+    $("#search_cate").click(function(){
+        $(".category_search").css("display", "block");
+    });
+    $("#cate_search_close").click(function(){
+        $(".category_search").css("display", "");
+    });
+    $("#cate_keyword").keyup(function(e){
+        if(e.keyCode == 13) $("#cate_search_btn").trigger("click");
+    });
+    $("#cate_search_btn").click(function(){
+        $.ajax({
+            url:"/cate/keyword?keyword="+$("#cate_keyword").val(),
+            type:"get",
+            success:function(r){
+                console.log(r);
+                $(".search_result ul").html("");
+                // 반복을 통해서 만들어주셔야하고
+                // 카테고리 정보는 r.list 에 모두 담겨있고,
+                // 반복을 활용해서 작성하기 때문에
+                for(let i=0; i<r.list.length; i++){
+                    let tag =
+                        '<li>'+
+                            // 여기에 [i] 라고 인덱스 값을 사용해야됩니다.
+                            '<a href="#" data-dep-seq="'+r.list[i].ci_seq+'">'+r.list[i].ci_name+'</a>'+
+                        '</li>';
+                    $(".search_result ul").append(tag);
+                }
+                $(".search_result ul a").click(function(e){
+                    e.preventDefault();
+                    let seq = $(this).attr("data-dep-seq");
+                    let name = $(this).html();
+
+                    $("#post_cate_name").attr("data-dep-seq", seq);
+                    $("#post_cate_name").val(name);
+
+                    $(".search_result ul").html("");
+                    $("#cate_keyword").val("");
+                    $(".category_search").css("display", "");
+                })
+            }
+        })
+    });
+
+
     $("#add_post").click(function(){
         $(".popup_wrap").addClass("open");
         $("#add_posts").css("display", "inline-block");
@@ -13,7 +57,8 @@ $(function(){
         let post_i_seq = $("#post_i_seq").val();
         let post_sub = $("#post_sub").val();
         let post_state = $("#post_state option:selected").val();
-        let post_rq_seq = $("#post_rq_seq option:selected").val();
+        // let post_rq_seq = $("#post_rq_seq option:selected").val();
+        let post_rq_seq = $("#post_cate_name").attr("data-dep-seq");
     
         let data = {
             pi_title : post_title,
@@ -74,6 +119,8 @@ $(function(){
             url:"/post/get?seq="+$(this).attr("data-seq"),
             success:function(r){
                 console.log(r);
+                $("#post_cate_name").val(r.data.category_name);
+                $("#post_cate_name").attr("data-dep-seq", r.data.pi_rq_seq);
                 $("#post_title").val(r.data.pi_title);
                 $("#post_state").val(r.data.pi_state).prop("selected", true);
                 $("#post_sub").val(r.data.pi_sub);
@@ -90,7 +137,8 @@ $(function(){
         let post_i_seq = $("#post_i_seq").val();
         let post_sub = $("#post_sub").val();
         let post_state = $("#post_state option:selected").val();
-        let post_rq_seq = $("#post_rq_seq option:selected").val();
+        // let post_rq_seq = $("#post_rq_seq option:selected").val();
+        let post_rq_seq = $("#post_cate_name").attr("data-dep-seq");
     
         let data = {
             pi_seq:modify_data_seq,
@@ -100,6 +148,7 @@ $(function(){
             pi_state : post_state,
             pi_rq_seq : post_rq_seq
         }
+        // console.log(JSON.stringify(data) )
         $.ajax({
             type:"patch",
             url:"/post/update",
@@ -120,5 +169,7 @@ $(function(){
             $("#search_btn").trigger("click");
         }
     })
-    
+    $("#search_cate").click(function(){
+
+    })
 })

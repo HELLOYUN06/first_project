@@ -1,6 +1,7 @@
 <%@page language="java" contentType="text/html; charset=UTF-8" 
     pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,8 +46,8 @@
                                     <td>${c.ci_seq}</td>
                                     <td>${c.ci_name}</td>
                                     <td>${c.ci_writer}</td>
-                                    <td>${c.ci_reg_Dt}</td>
-                                    <td>${c.ci_mod_dt}</td>
+                                    <td><fmt:formatDate value="${c.ci_reg_dt}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
+                                    <td><fmt:formatDate value="${c.ci_mod_dt}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
                                     <td>
                                         <button class="modify_btn" data-seq="${c.ci_seq}"><i class="fas fa-pen-alt"></i></button>
                                         <button class="delete_btn" data-seq="${c.ci_seq}"><i class="far fa-trash-alt"></i></button>
@@ -76,10 +77,10 @@
                 <p>카테고리 정보를 입력해주세요</p>
             </div>
             <div class="content_area">
-                <input type="text" id="cate_name" placeholder="카테고리 명"><br>
-                <input type="text" id="cate_wirter" placeholder="작성자"><br>
+                <input type="text" id="cate_name" placeholder="카테고리 명">
+                <input type="text" id="cate_writer" placeholder="작성자"><br>
             </div>
-            <div class="btun_area">
+            <div class="btn_area">
                 <button id="add_category">등록하기</button>
                 <button id="modify_category">수정하기</button>
                 <button id="cancel_category">취소하기</button>

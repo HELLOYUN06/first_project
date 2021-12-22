@@ -14,29 +14,28 @@ import org.springframework.stereotype.Service;
 public class PostService {
     @Autowired
     PostMapper mapper;
-    public Map<String, Object> getPostList(Integer offset, String keyword){
+    public Map<String, Object> getPostList(String type, Integer offset, String keyword){
         Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
-        if(offset == null){ 
-            offset = 0;
-            resultMap.put("offset", offset);
-        }
         if(keyword == null){
+            resultMap.put("keyword", keyword);
             keyword = "%%";
-            resultMap.put("keyword","");
         }
         else{
             resultMap.put("keyword", keyword);
             keyword = "%"+keyword+"%";
         }
-        List<PostVO> list = mapper.getPostInfo(offset, keyword);
+        resultMap.put("type", type);
 
-        Integer cnt = mapper.getPostCount(keyword);
-        Integer page_cnt = cnt / 10;
-        if(cnt % 10 > 0) page_cnt++;
+        if(offset == null) offset = 0;
+        List<PostVO> list = mapper.getPostList(type, keyword, offset);
+        Integer cnt = mapper.getPostCnt(type, keyword);
+        Integer page = cnt / 10;
+        if(cnt % 10 > 0) page++;
+
         resultMap.put("status", true);
-        resultMap.put("total", cnt);
-        resultMap.put("pageCnt", page_cnt);
+        resultMap.put("pageCnt", page);
         resultMap.put("list", list);
+
         return resultMap;
     }
     public Map<String, Object> addPost(PostVO data){

@@ -26,5 +26,10 @@
 <select id="getAllAdminCnt" resultType="java.lang.Integer">
     select count(*) from admin_info
 </select>
-
+    <select id="getPostUpdateDate" resultType="java.util.Date">
+        select ph_reg_dt from post_history order by ph_reg_dt desc limit 1;
+    </select>
+    <select id="getCateUpdateDate" resultType="java.util.Date">
+        select cih_reg_dt from cate_info_history order by cih_seq desc limit 1
+    </select>
 </mapper>

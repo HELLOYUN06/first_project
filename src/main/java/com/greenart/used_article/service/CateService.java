@@ -4,6 +4,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.greenart.used_article.data.CateHistoryVO;
 import com.greenart.used_article.data.CateVO;
 import com.greenart.used_article.mapper.CateMapper;
 
@@ -52,8 +53,16 @@ public class CateService {
             resultMap.put("message", "작성자를 입력하세요");
             return resultMap;
         }
-
         mapper.addCate(data);
+
+        CateHistoryVO history = new CateHistoryVO();
+        history.setCih_ci_name("new");
+        history.setCih_ci_writer(data.makeHistoryStr());
+        Integer recent_seq = mapper.getRecentAddedCateSeq();
+        history.setCih_ci_seq(recent_seq);
+
+        mapper.insertCateHistory(history);
+
         resultMap.put("status", true);
         resultMap.put("message", "카테고리가 추가되었습니다.");
     
@@ -63,7 +72,12 @@ public class CateService {
         Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
         mapper.deleteCate(seq);
         resultMap.put("status", true);
-        resultMap.put("message", "게시글이 삭제되었습니다.");
+        resultMap.put("message", "카테고리가 삭제되었습니다.");
+
+        CateHistoryVO history = new CateHistoryVO();
+        history.setCih_ci_name("delete");
+        history.setCih_ci_seq(seq);
+        mapper.insertCateHistory(history);
 
         return resultMap;
     }
@@ -79,8 +93,26 @@ public class CateService {
         resultMap.put("status", true);
         resultMap.put("message", "수정되었습니다.");
 
+        CateHistoryVO history = new CateHistoryVO();
+        history.setCih_ci_name("modify");
+        history.setCih_ci_writer(data.makeHistoryStr());
+        history.setCih_ci_seq(data.getCi_seq());
+        mapper.insertCateHistory(history);
+
         return resultMap;
     }
-    
+    public Map<String, Object> getCateByKeyowrd(String keyword){
+        Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
+
+        if(keyword == null) keyword = "%%";
+        keyword = "%"+keyword+"%";
+
+        List<CateVO> list = mapper.getCateByKeyword(keyword);
+
+        resultMap.put("status", true);
+        resultMap.put("list", list);
+
+        return resultMap;
+    }
 
 }

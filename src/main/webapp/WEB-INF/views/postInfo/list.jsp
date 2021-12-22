@@ -1,6 +1,7 @@
 <%@page language="java" contentType="text/html; charset=UTF-8" 
     pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -60,29 +61,13 @@
                                                 <span>공개</span>
                                             </c:if>
                                         </td>
-                                        <td>
-                                            <c:if test="${p.pi_rq_seq == 1}">
-                                                <span>가전</span>
-                                            </c:if>
-                                            <c:if test="${p.pi_rq_seq == 2}">
-                                                <span>가구</span>
-                                            </c:if>
-                                            <c:if test="${p.pi_rq_seq == 3}">
-                                                <span>의류</span>
-                                            </c:if>
-                                            <c:if test="${p.pi_rq_seq == 4}">
-                                                <span>장난감/도서</span>
-                                            </c:if>
-                                            <c:if test="${p.pi_rq_seq == 5}">
-                                                <span>etc</span>
-                                            </c:if>
-                                        </td>                   
+                                        <td>${p.category_name}</td>                   
                                         <td>${p.pi_title}</td>
                                         <td>${p.pi_sub}</td>
                                         <td>${p.pi_i_seq}</td>
-                                        <td>${p.pi_mi_seq}</td>
-                                        <td>${p.pi_reg_dt}</td>
-                                        <td>${p.pi_mod_dt}</td>
+                                        <td>${p.mi_name}(${p.mi_id})</td>
+                                        <td><fmt:formatDate value="${p.pi_reg_dt}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
+                                        <td><fmt:formatDate value="${p.pi_mod_dt}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
                                         <td>
                                             <button class="modify_btn" data-seq="${p.pi_seq}"><i class="fas fa-pen-alt"></i></button>
                                             <button class="delete_btn" data-seq="${p.pi_seq}"><i class="far fa-trash-alt"></i>
@@ -113,26 +98,36 @@
                 <p>게시글을 입력해주세요</p>
             </div>
             <div class="content_area">
-                <input type="text" id="post_title" placeholder="제목"><br>
-                <input type="text" id="post_mi_seq" placeholder="작성자">
-                <input type="text" id="post_i_seq" placeholder="사진첨부">
-                <select id="post_rq_seq">
-                    <option value="1">가전</option>
-                    <option value="2">가구</option>
-                    <option value="3">의류</option>
-                    <option value="4">장난감/도서</option>
-                    <option value="5">etc</option>
-                </select>
+                <input type="text" id="post_title" placeholder="제목">
                 <select id="post_state">
                     <option value="0">비공개</option>
                     <option value="1">공개</option>
                 </select>
+                <input type="text" id="post_cate_name" placeholder="카테고리 명" disabled>
+                <button id="search_cate">검색</button>
+                <input type="text" id="post_mi_seq" placeholder="작성자">
+                <input type="text" id="post_i_seq" placeholder="사진첨부">
+
                 <input type="text" id="post_sub" placeholder="내용">
             </div>
             <div class="btn_area">
                 <button id="add_posts">등록하기</button>
                 <button id="modify_posts">수정하기</button>
                 <button id="cancel_posts">취소하기</button>
+            </div>
+            <div class="category_search">
+                <div class="cate_search_box">
+                    <input type="text" id="cate_keyword" placeholder="카테고리 명">
+                    <button id="cate_search_btn"><i class="fas fa-search"></i></button>
+                    </div>
+                    <div class="search_result">
+                        <ul>
+                        
+                        </ul>
+                    </div>
+                    <div class="cate_search_buttons">
+                        <button id="cate_search_close">닫기</button>
+                    </div>
             </div>
 </body>
 </html>

@@ -60,7 +60,9 @@ main > h1 {font-size: 36px; padding-bottom: 30px; margin-bottom: 30px; border-bo
 .popup .content_area{padding: 20px 0;  width: 350px; margin: 0 auto; font-size: 0; 
     padding-bottom: 20px;
 }
-#post_title {height: 35px; width: 50%; padding: 0; margin: 0; border: 1px solid #ccc;
+
+
+#post_title {height: 35px; width: 50%; padding: 0; margin: 0; margin-right: 10px; border: 1px solid #ccc;
     font-size: 16px; font-weight: 400; padding: 8px 18px; box-sizing: border-box;
     border-radius: 15px; margin-bottom: 10px; outline: none;
 }
@@ -74,12 +76,15 @@ main > h1 {font-size: 36px; padding-bottom: 30px; margin-bottom: 30px; border-bo
     font-size: 12px; font-weight: 400; padding: 9px 20px; box-sizing: border-box;
     border-radius: 15px 0 0 15px; border-left : 0 solid #ccc; margin-bottom: 8px; outline: none;
 }
-#post_state {height: 35px; width: 150px; border-radius: 0 15px 15px 0; border: 1px solid #ccc; border-left: 0 solid #ccc;
+#post_state {height: 35px; width: 150px; border-radius: 15px 15px 15px 15px; border: 1px solid #ccc; border-left: 0 solid #ccc;
     padding: 9px 20px; font-size: 12px; font-weight: 400;
 }
-#post_rq_seq {height: 35px; width: 150px; border-radius: 15px 0 0 15px; border: 1px solid #ccc; border-left: 0 solid #ccc;
-    padding: 9px 20px; margin-bottom: 15px; font-size: 12px; font-weight: 400; 
+#post_cate_name {height: 17px; width: 150px; border-radius: 15px 0 0 15px; border: 1px solid #ccc; border-left: 0 solid #ccc;
+    padding: 9px 20px; margin-bottom: 10px; font-size: 12px; font-weight: 400; 
 }
+#search_cate {height: 36px; width: 150px; border-radius: 0 15px 15px 0; border: 1px solid #ccc; border-left: 0 solid #ccc;
+    padding: 9px 20px; margin-bottom: 10px; font-size: 12px; font-weight: 400; }
+
 #post_i_seq {height: 35px; 
     width: 150px; padding: 0; margin: 0; border: 1px solid #ccc;
     font-size: 12px; font-weight: 400; padding: 9px 20px; box-sizing: border-box;
@@ -102,4 +107,33 @@ main > h1 {font-size: 36px; padding-bottom: 30px; margin-bottom: 30px; border-bo
 .btn_area #modify_posts:hover {background-color: #333;}
 .btn_area #cancel_posts { background-color: rgb(255, 194, 194);}
 .btn_area #cancel_posts:hover { background-color: rgb(255, 83, 83);}
+
+.category_search{position: fixed; z-index: 9999999999;
+    background-color: #fff; left: 50%; margin-left: -200px;
+    top: 50%; margin-top: -100px; box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    width: 350px; display: none;
+}
+.cate_search_box{
+    padding:0 10px; font-size: 0; border-bottom: 1px solid #000; 
+}
+.cate_search_box * {font-size: 18px;}
+.cate_search_box input {border: 0; padding: 0; margin: 0; outline:none; width: 95%;
+    padding: 10px 0;}
+.cate_search_box button {border: 0; padding: 0; margin: 0; outline:none; cursor: pointer;
+position: absolute; right: 10px; top: 10px; background-color: transparent; color: #666;}
+.search_result{
+    min-height: 300px; overflow-y: scroll; height: 200px;
+}
+.search_result ul li {padding: 10px; }
+.search_result a {text-decoration: none; color: #555; display: inline-block; vertical-align: middle; }
+.search_result a:hover {text-decoration: underline; color: #333; font-weight: 700;}
+.search_result span{font-size: 12px; display: inline-block; vertical-align: middle; padding: 5px 10px; margin-left: 10px;
+    color: #fff; background-color: #333; border-radius: 20px;    
+}
+.cate_search_buttons {text-align: center; padding: 10px; border-top: 1px solid #ddd;
+    background-color: #f3f3f3;}
+#cate_search_close {border: 0; background-color: #666; color: #fff;
+    border-radius: 3px; width: 80px; height: 30px; cursor: pointer;}
+
+
 

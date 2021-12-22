@@ -11,7 +11,7 @@
     </select>
 
     <insert id="addCate">
-        insert into cate_info(ci_name, ci_wirter) values(#{ci_name}, #{ci_wirter})
+        insert into cate_info(ci_name, ci_writer) values(#{ci_name}, #{ci_writer})
     </insert>
 
     <delete id="deleteCate">
@@ -24,6 +24,18 @@
 
     <update id="updateCate">
         update cate_info
-        set ci_name=#{ci_name}, ci_wirter=#{ci_wirter} where ci_seq=#{ci_seq}
+        set ci_name=#{ci_name}, ci_writer=#{ci_writer}, ci_mod_dt = NOW() 
+        where ci_seq=#{ci_seq}
     </update>
+    <select id="getCateByKeyword" resultType="com.greenart.used_article.data.CateVO">
+        select ci_seq, ci_name from cate_info where ci_name like #{keyword}
+    </select>
+
+    <insert id="insertCateHistory">
+        INSERT INTO cate_info_history (cih_ci_seq, cih_ci_writer, cih_ci_name)
+        VALUES (#{cih_ci_seq}, #{cih_ci_writer}, #{cih_ci_name});
+    </insert>
+    <select id="getRecentAddedCateSeq" resultType="java.lang.Integer">
+        select ci_seq from cate_info order by ci_seq desc limit 1
+    </select>
 </mapper>

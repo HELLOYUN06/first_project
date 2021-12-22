@@ -1,14 +1,14 @@
 package com.greenart.used_article.api;
 
 
-import java.lang.annotation.Repeatable;
+
 import java.util.Map;
 
 import com.greenart.used_article.data.CateVO;
 import com.greenart.used_article.service.CateService;
 
-import org.apache.ibatis.annotations.Delete;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.lang.Nullable;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -39,4 +39,10 @@ public class CateAPIController {
     public Map<String, Object> patchCateInfo(@RequestBody CateVO data){
         return service.updateCateInfo(data);
     }     
+    @GetMapping("/cate/keyword")
+    public Map<String, Object> getCateByKeyword(@RequestParam @Nullable String keyword){
+        return service.getCateByKeyowrd(keyword);
+
+        
+    }
 }

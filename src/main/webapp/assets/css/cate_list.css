@@ -60,7 +60,11 @@ main > h1 {font-size: 36px; padding-bottom: 30px; margin-bottom: 30px; border-bo
 .popup .content_area{padding: 20px 0;  width: 350px; margin: 0 auto; font-size: 0; 
     padding-bottom: 20px;
 }
-#cate_name, #cate_wirter {height: 35px; width: 50%; padding: 0; margin: 0; border: 1px solid #ccc;
+#cate_name  {height: 40px; width: 60%; padding: 0; margin: 0; border: 1px solid #ccc;
+    font-size: 16px; font-weight: 400; padding: 8px 18px; box-sizing: border-box;
+    border-radius: 15px; margin-bottom: 10px; margin-right: 10px; outline: none;
+}
+#cate_writer {height: 40px; width: 30%; padding: 0; margin: 0; border: 1px solid #ccc;
     font-size: 16px; font-weight: 400; padding: 8px 18px; box-sizing: border-box;
     border-radius: 15px; margin-bottom: 10px; outline: none;
 }

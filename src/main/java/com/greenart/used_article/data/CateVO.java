@@ -11,4 +11,8 @@ public class CateVO {
     private String ci_writer;
     private Date ci_reg_dt;
     private Date ci_mod_dt;
+
+    public String makeHistoryStr(){
+        return ci_seq+"|"+ci_name+"|"+ ci_writer+"|"+ ci_reg_dt+"|"+ ci_mod_dt;
+    }
 }
